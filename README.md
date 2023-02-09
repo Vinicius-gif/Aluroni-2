@@ -1,3 +1,1 @@
-<img src="src\assets\imgs-tela\tela1.png" alt="" />&nbsp;
-<img src="src\assets\imgs-tela\tela2.png" alt="" />&nbsp;
-<img src="src\assets\imgs-tela\tela3.png" alt="" />&nbsp;
+###Link para o projeto: <a href="https://aluroni-react-chi.vercel.app/">Aluroni</a>
