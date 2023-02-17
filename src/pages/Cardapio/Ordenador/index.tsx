@@ -1,6 +1,6 @@
 import styles from './Ordenador.module.scss';
 import opcoes from './opcoes.json';
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import classNames from 'classnames';
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md';
 
@@ -9,7 +9,7 @@ interface Props {
   setOrdenador: React.Dispatch<React.SetStateAction<string>>
 }
 
-export default function Ordenador({
+function Ordenador({
   ordenador,
   setOrdenador
 }: Props) {
@@ -25,7 +25,13 @@ export default function Ordenador({
       onBlur={() => setAberto(false)}
     >
       <span>{nomeOrdenador || 'Ordenar Por'}</span>
-      {aberto ? <MdKeyboardArrowUp size={20} /> : <MdKeyboardArrowDown size={20} /> }
+      <MdKeyboardArrowUp 
+        size={20}
+        style={{
+          transform: `rotate(${aberto ? 0 : 180}deg)`
+        }}
+      />
+      {/* {aberto ? <MdKeyboardArrowUp size={20} /> : <MdKeyboardArrowDown size={20} /> } */}
       <div className={classNames({
         [styles.ordenador__options]: true,
         [styles['ordenador__options--ativo']]: aberto
@@ -39,3 +45,5 @@ export default function Ordenador({
     </button>
   );
 }
+
+export default memo(Ordenador);
